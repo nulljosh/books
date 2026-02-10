@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Rankings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 21px;
+            color: #6e6e73;
+            font-weight: 400;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .book {
+            padding: 24px 0;
+            border-bottom: 1px solid #d2d2d7;
+        }
+
+        .book:last-child {
+            border-bottom: none;
+        }
+
+        .book-header {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .rank {
+            font-size: 32px;
+            font-weight: 600;
+            color: #d2d2d7;
+            min-width: 50px;
+        }
+
+        .book-info {
+            flex: 1;
+        }
+
+        .book-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .book-title a {
+            color: #0071e3;
+            text-decoration: none;
+        }
+
+        .book-title a:hover {
+            text-decoration: underline;
+        }
+
+        .author {
+            font-size: 17px;
+            color: #6e6e73;
+            margin-bottom: 8px;
+        }
+
+        .rating {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .rating-value {
+            font-weight: 600;
+        }
+
+        .reviews {
+            color: #86868b;
+        }
+
+        .notes {
+            font-size: 15px;
+            color: #6e6e73;
+            margin-top: 8px;
+        }
+
+        .top-section {
+            background: white;
+            border-radius: 18px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .top-section h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .top-section ol {
+            padding-left: 24px;
+        }
+
+        .top-section li {
+            margin-bottom: 12px;
+            font-size: 17px;
+            color: #1d1d1f;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #f5f5f7;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #6e6e73;
+            margin-left: 6px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .card, .top-section {
+                padding: 24px;
+            }
+
+            .book-title {
+                font-size: 21px;
+            }
+
+            .rank {
+                font-size: 24px;
+                min-width: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Book Rankings</h1>
+            <p class="subtitle">Based on Goodreads Reviews</p>
+        </header>
+
+        <div class="top-section">
+            <h2>Top Recommendations</h2>
+            <ol>
+                <li><strong>A Brief History of Time</strong> — Highest engagement (479k ratings)</li>
+                <li><strong>How to Change Your Mind</strong> — Modern classic (4.27, 84k ratings)</li>
+                <li><strong>The Making of the Atomic Bomb</strong> — Pulitzer winner (4.38, 20k)</li>
+                <li><strong>The Snowball</strong> — Best business biography (4.15, 50k)</li>
+                <li><strong>The Battle of Midway</strong> — Highest rated (4.39, 3.7k)</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">1</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/11472008-the-battle-of-midway" target="_blank">The Battle of Midway</a></div>
+                        <div class="author">Craig L. Symonds</div>
+                        <div class="rating">
+                            <span class="rating-value">4.39/5</span>
+                            <span class="reviews">3,670 ratings</span>
+                        </div>
+                        <div class="notes">Masterful account of the pivotal WWII Pacific battle.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">2</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/16884.The_Making_of_the_Atomic_Bomb" target="_blank">The Making of the Atomic Bomb</a></div>
+                        <div class="author">Richard Rhodes</div>
+                        <div class="rating">
+                            <span class="rating-value">4.38/5</span>
+                            <span class="reviews">20,258 ratings</span>
+                        </div>
+                        <div class="notes">Comprehensive, authoritative history. Pulitzer Prize winner.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">3</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/29370481-killing-the-rising-sun" target="_blank">Killing the Rising Sun</a></div>
+                        <div class="author">Bill O'Reilly & Martin Dugard</div>
+                        <div class="rating">
+                            <span class="rating-value">4.35/5</span>
+                            <span class="reviews">20,658 ratings</span>
+                        </div>
+                        <div class="notes">Popular history of America's victory over Japan in WWII.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">4</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/56298779-make-it-don-t-fake-it" target="_blank">Make It, Don't Fake It</a></div>
+                        <div class="author">Sabrina Horn</div>
+                        <div class="rating">
+                            <span class="rating-value">4.34/5</span>
+                            <span class="reviews">38 ratings</span>
+                            <span class="badge">Limited sample</span>
+                        </div>
+                        <div class="notes">Business authenticity guide.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">5</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/en/book/show/80571" target="_blank">American Prometheus</a></div>
+                        <div class="author">Kai Bird & Martin Sherwin</div>
+                        <div class="rating">
+                            <span class="rating-value">4.32/5</span>
+                            <span class="reviews">4,856 reviews</span>
+                        </div>
+                        <div class="notes">Oppenheimer biography. Pulitzer Prize winner.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">6</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/767171.The_Rise_and_Fall_of_the_Third_Reich" target="_blank">The Rise and Fall of the Third Reich</a></div>
+                        <div class="author">William L. Shirer</div>
+                        <div class="rating">
+                            <span class="rating-value">4.32/5</span>
+                            <span class="reviews">7,078+ ratings</span>
+                        </div>
+                        <div class="notes">Classic comprehensive Nazi Germany history.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">7</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/36613747-how-to-change-your-mind" target="_blank">How to Change Your Mind</a></div>
+                        <div class="author">Michael Pollan</div>
+                        <div class="rating">
+                            <span class="rating-value">4.27/5</span>
+                            <span class="reviews">84,602 ratings</span>
+                            <span class="badge">Very popular</span>
+                        </div>
+                        <div class="notes">Psychedelics and consciousness exploration.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">8</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/21376424" target="_blank">You Are the Placebo</a></div>
+                        <div class="author">Joe Dispenza</div>
+                        <div class="rating">
+                            <span class="rating-value">4.25/5</span>
+                            <span class="reviews">14,271 ratings</span>
+                        </div>
+                        <div class="notes">Mind-body connection and healing.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">9</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/6149445-the-rape-of-nanking" target="_blank">The Rape of Nanking</a></div>
+                        <div class="author">Iris Chang</div>
+                        <div class="rating">
+                            <span class="rating-value">4.25/5</span>
+                            <span class="reviews">54,176 ratings</span>
+                        </div>
+                        <div class="notes">Important historical work on Japanese atrocities.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">10</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/35289.The_33_Strategies_of_War" target="_blank">The 33 Strategies of War</a></div>
+                        <div class="author">Robert Greene</div>
+                        <div class="rating">
+                            <span class="rating-value">4.23/5</span>
+                            <span class="reviews">19,163 ratings</span>
+                        </div>
+                        <div class="notes">Strategic thinking guide.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">11</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/3869.A_Brief_History_of_Time" target="_blank">A Brief History of Time</a></div>
+                        <div class="author">Stephen Hawking</div>
+                        <div class="rating">
+                            <span class="rating-value">4.21/5</span>
+                            <span class="reviews">479,468 ratings</span>
+                            <span class="badge">Most reviewed</span>
+                        </div>
+                        <div class="notes">Iconic cosmology classic.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">12</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/15916.The_True_Believer" target="_blank">The True Believer</a></div>
+                        <div class="author">Eric Hoffer</div>
+                        <div class="rating">
+                            <span class="rating-value">4.19/5</span>
+                            <span class="reviews">11,987 ratings</span>
+                        </div>
+                        <div class="notes">Mass movements and fanaticism analysis.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">13</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/56696339-the-power-of-geography" target="_blank">The Power of Geography</a></div>
+                        <div class="author">Tim Marshall</div>
+                        <div class="rating">
+                            <span class="rating-value">4.19/5</span>
+                            <span class="reviews">23,828 ratings</span>
+                        </div>
+                        <div class="notes">How geography shapes nations.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">14</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/2054761.The_Snowball" target="_blank">The Snowball</a></div>
+                        <div class="author">Alice Schroeder</div>
+                        <div class="rating">
+                            <span class="rating-value">4.15/5</span>
+                            <span class="reviews">50,285 ratings</span>
+                        </div>
+                        <div class="notes">Warren Buffett biography.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">15</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/343614.The_Law_of_Attraction" target="_blank">The Law of Attraction</a></div>
+                        <div class="author">Esther & Jerry Hicks</div>
+                        <div class="rating">
+                            <span class="rating-value">4.13/5</span>
+                            <span class="reviews">175 ratings</span>
+                        </div>
+                        <div class="notes">Foundational LOA text.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">16</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/13058637-subliminal" target="_blank">Subliminal</a></div>
+                        <div class="author">Leonard Mlodinow</div>
+                        <div class="rating">
+                            <span class="rating-value">4.06/5</span>
+                            <span class="reviews">13,494 ratings</span>
+                        </div>
+                        <div class="notes">Unconscious mind science.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">17</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/43369.God_Is_Not_Great" target="_blank">God Is Not Great</a></div>
+                        <div class="author">Christopher Hitchens</div>
+                        <div class="rating">
+                            <span class="rating-value">3.94/5</span>
+                            <span class="reviews">101,622 ratings</span>
+                        </div>
+                        <div class="notes">Anti-religion polemic.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">18</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/9454.Phenomenology_of_Spirit" target="_blank">Phenomenology of Spirit</a></div>
+                        <div class="author">G.W.F. Hegel</div>
+                        <div class="rating">
+                            <span class="rating-value">3.93/5</span>
+                            <span class="reviews">37,626 ratings</span>
+                        </div>
+                        <div class="notes">Dense philosophy classic.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">19</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/61108472-palo-alto" target="_blank">Palo Alto</a></div>
+                        <div class="author">Malcolm Harris</div>
+                        <div class="rating">
+                            <span class="rating-value">3.91/5</span>
+                            <span class="reviews">2,575 ratings</span>
+                        </div>
+                        <div class="notes">Silicon Valley history.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">20</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/27209431-the-inevitable" target="_blank">The Inevitable</a></div>
+                        <div class="author">Kevin Kelly</div>
+                        <div class="rating">
+                            <span class="rating-value">3.89/5</span>
+                            <span class="reviews">11,967 ratings</span>
+                        </div>
+                        <div class="notes">Technology futures.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">21</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/199798515-what-went-wrong-with-capitalism" target="_blank">What Went Wrong with Capitalism</a></div>
+                        <div class="author">Ruchir Sharma</div>
+                        <div class="rating">
+                            <span class="rating-value">3.87/5</span>
+                            <span class="reviews">569 ratings</span>
+                        </div>
+                        <div class="notes">Economic critique.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">22</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/1617037.Sneaker_Wars" target="_blank">Sneaker Wars</a></div>
+                        <div class="author">Barbara Smit</div>
+                        <div class="rating">
+                            <span class="rating-value">3.86/5</span>
+                            <span class="reviews">836 ratings</span>
+                        </div>
+                        <div class="notes">Adidas vs Puma family feud.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">23</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/58154664-emotional" target="_blank">Emotional</a></div>
+                        <div class="author">Leonard Mlodinow</div>
+                        <div class="rating">
+                            <span class="rating-value">3.80/5</span>
+                            <span class="reviews">1,340 ratings</span>
+                        </div>
+                        <div class="notes">Neuroscience of emotions.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">24</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/24700355-the-mind-gut-connection" target="_blank">The Mind-Gut Connection</a></div>
+                        <div class="author">Emeran Mayer</div>
+                        <div class="rating">
+                            <span class="rating-value">3.76/5</span>
+                            <span class="reviews">9,092 ratings</span>
+                        </div>
+                        <div class="notes">Digestive health and brain connection.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">25</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/91953.Leviathan" target="_blank">Leviathan</a></div>
+                        <div class="author">Thomas Hobbes</div>
+                        <div class="rating">
+                            <span class="rating-value">3.70/5</span>
+                            <span class="reviews">53,226 ratings</span>
+                        </div>
+                        <div class="notes">Political philosophy classic (1651).</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">26</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/2085700.Entrepreneurship_for_Dummies" target="_blank">Entrepreneurship for Dummies</a></div>
+                        <div class="author">Kathleen Allen</div>
+                        <div class="rating">
+                            <span class="rating-value">3.65/5</span>
+                            <span class="reviews">34 ratings</span>
+                        </div>
+                        <div class="notes">Basic business startup guide.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">27</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/37901602-the-book-of-help" target="_blank">The Book of Help</a></div>
+                        <div class="author">Megan Griswold</div>
+                        <div class="rating">
+                            <span class="rating-value">3.62/5</span>
+                            <span class="reviews">1,377 ratings</span>
+                        </div>
+                        <div class="notes">Self-help memoir.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">28</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/32073021-life-after-google" target="_blank">Life After Google</a></div>
+                        <div class="author">George Gilder</div>
+                        <div class="rating">
+                            <span class="rating-value">3.55/5</span>
+                            <span class="reviews">2,361 ratings</span>
+                        </div>
+                        <div class="notes">Cryptocurrency advocacy.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book-header">
+                    <div class="rank">29</div>
+                    <div class="book-info">
+                        <div class="book-title"><a href="https://www.goodreads.com/book/show/7815620-the-secret-history-of-the-world" target="_blank">The Secret History of the World</a></div>
+                        <div class="author">Mark Booth</div>
+                        <div class="rating">
+                            <span class="rating-value">3.44/5</span>
+                            <span class="reviews">617 ratings</span>
+                        </div>
+                        <div class="notes">Occult/esoteric history.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
