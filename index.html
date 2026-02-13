@@ -16,6 +16,12 @@
             background: #f5f5f7;
             color: #1d1d1f;
             line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark {
+            background: #0a0a0a;
+            color: #f5f5f7;
         }
 
         .container {
@@ -42,12 +48,34 @@
             font-weight: 400;
         }
 
+        body.dark .subtitle {
+            color: #86868b;
+        }
+
         .card {
-            background: white;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(0,0,0,0.08);
             border-radius: 18px;
             padding: 40px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+        }
+
+        body.dark .card {
+            background: rgba(28,28,30,0.9);
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        body.dark .card:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 4px 8px rgba(0,0,0,0.3);
         }
 
         .book {
@@ -57,6 +85,10 @@
 
         .book:last-child {
             border-bottom: none;
+        }
+
+        body.dark .book {
+            border-bottom-color: rgba(255,255,255,0.08);
         }
 
         .book-header {
@@ -98,6 +130,10 @@
             margin-bottom: 8px;
         }
 
+        body.dark .author {
+            color: #86868b;
+        }
+
         .rating {
             display: flex;
             gap: 12px;
@@ -114,18 +150,44 @@
             color: #86868b;
         }
 
+        body.dark .reviews {
+            color: #6e6e73;
+        }
+
         .notes {
             font-size: 15px;
             color: #6e6e73;
             margin-top: 8px;
         }
 
+        body.dark .notes {
+            color: #86868b;
+        }
+
         .top-section {
-            background: white;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(0,0,0,0.08);
             border-radius: 18px;
             padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .top-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+        }
+
+        body.dark .top-section {
+            background: rgba(28,28,30,0.9);
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        body.dark .top-section:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 4px 8px rgba(0,0,0,0.3);
         }
 
         .top-section h2 {
@@ -154,6 +216,46 @@
             margin-left: 6px;
         }
 
+        body.dark .badge {
+            background: rgba(118,118,128,0.24);
+            color: #86868b;
+        }
+
+        .toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s;
+            color: #1d1d1f;
+        }
+
+        .toggle svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .toggle:hover {
+            transform: scale(1.08);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        body.dark .toggle {
+            background: rgba(58,58,60,1);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.2);
+            color: #ffffff;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 36px;
@@ -175,6 +277,33 @@
     </style>
 </head>
 <body>
+    <button class="toggle" onclick="document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark'));updateToggleIcon()">
+        <svg id="themeIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5" fill="currentColor"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+    </button>
+    <script>
+        function updateToggleIcon() {
+            const icon = document.getElementById('themeIcon');
+            const isDark = document.body.classList.contains('dark');
+            icon.innerHTML = isDark
+                ? '<path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+                : '<circle cx="12" cy="12" r="5" fill="currentColor"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+        }
+        if (localStorage.getItem('dark') === 'true') {
+            document.body.classList.add('dark');
+        }
+        updateToggleIcon();
+    </script>
+
     <div class="container">
         <header>
             <h1>Book Rankings</h1>
