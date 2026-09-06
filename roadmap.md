@@ -98,7 +98,7 @@ the owner's private sync.** This closes the personal-vs-product question that se
 below were implicitly blocked on.
 
 Consequences, DO:
-- [ ] **One source of truth for the book list.** Today it is three hand-maintained copies
+- [x] **One source of truth for the book list.** Done: `scripts/build.py` generates every surface from root `books.json` (verified in sync 2026-09-06). Original note: three hand-maintained copies
   that have already drifted: 134 `li.book` rows in `rankings.html`, 71 books in
   `ios/Bookrank/Resources/books.json`, 444 lines in `book_rankings.md`. Adding a book means
   editing all three. Generate the latter two from one JSON. Highest value in the repo, and
